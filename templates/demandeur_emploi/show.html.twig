@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DemandeurEmploi{% endblock %}
+
+{% block body %}
+    <h1>DemandeurEmploi</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ demandeur_emploi.id }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ demandeur_emploi.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ demandeur_emploi.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ demandeur_emploi.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ demandeur_emploi.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ demandeur_emploi.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ demandeur_emploi.age }}</td>
+            </tr>
+            <tr>
+                <th>Specialite</th>
+                <td>{{ demandeur_emploi.specialite }}</td>
+            </tr>
+            <tr>
+                <th>ExpProfessionnel</th>
+                <td>{{ demandeur_emploi.expProfessionnel }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('demandeur_emploi_index') }}" class="btn btn-primary">back to list</a>
+
+    <a href="{{ path('demandeur_emploi_edit', {'id': demandeur_emploi.id}) }}" class="btn btn-secondary">edit</a>
+
+    {{ include('demandeur_emploi/_delete_form.html.twig') }}
+{% endblock %}

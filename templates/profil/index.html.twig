@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}   Profil {% endblock %}
+
+{% block body %}
+    <h1 align="center">Profil </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Adresse</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for profil in profils %}
+            <tr>
+                <td>{{ profil.id }}</td>
+                <td>{{ profil.adresse }}</td>
+                <td>{{ profil.email }}</td>
+                <td>{{ profil.telephone }}</td>
+                <td>
+                    <a href="{{ path('profil_show', {'id': profil.id}) }}" class="btn btn-primary">show</a>
+                    <a href="{{ path('profil_edit', {'id': profil.id}) }}" class="btn btn-secondary">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('profil_new') }}" class="btn btn-primary">Create new</a>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DemandeurEmploi index{% endblock %}
+
+{% block body %}
+    <h1 align="center">Demandeur Emploi </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Adresse</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Age</th>
+                <th>Specialite</th>
+                <th>ExpProfessionnel</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for demandeur_emploi in demandeur_emplois %}
+            <tr>
+                <td>{{ demandeur_emploi.id }}</td>
+                <td>{{ demandeur_emploi.adresse }}</td>
+                <td>{{ demandeur_emploi.email }}</td>
+                <td>{{ demandeur_emploi.telephone }}</td>
+                <td>{{ demandeur_emploi.nom }}</td>
+                <td>{{ demandeur_emploi.prenom }}</td>
+                <td>{{ demandeur_emploi.age }}</td>
+                <td>{{ demandeur_emploi.specialite }}</td>
+                <td>{{ demandeur_emploi.expProfessionnel }}</td>
+                <td>
+                    <a href="{{ path('demandeur_emploi_show', {'id': demandeur_emploi.id}) }}" class="btn btn-primary">show</a>
+                    <a href="{{ path('demandeur_emploi_edit', {'id': demandeur_emploi.id}) }}" class="btn btn-secondary">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('demandeur_emploi_new') }}" class="btn btn-primary">Create new</a>
+{% endblock %}

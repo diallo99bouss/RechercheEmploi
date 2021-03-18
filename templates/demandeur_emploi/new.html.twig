@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New DemandeurEmploi{% endblock %}
+
+{% block body %}
+    <h1 align"center">Create new DemandeurEmploi</h1>
+
+    {{ include('demandeur_emploi/_form.html.twig') }}
+
+    <a href="{{ path('demandeur_emploi_index') }}" class="btn btn-primary">back to list</a>
+{% endblock %}
